@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PenTestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pentest');
 });
+
+Route::get('/sql-injection', [PenTestController::class, 'testSqlInjection']);
+Route::get('/xss', [PenTestController::class, 'testXss']);
